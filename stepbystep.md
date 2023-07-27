@@ -1,9 +1,10 @@
 
 
 # Iniciando Projeto Sistema Login com Typescript
-  ## Install -> redux react-redux @reduxjs/toolkit react-toastify firebase react-hook-form react-router-dom vite-plugin-svgr styled-components
+  ## Install -> redux react-redux @reduxjs/toolkit react-toastify firebase react-hook-form react-router-dom vite-plugin-svgr styled-components -- need install [zod], [react-imask]
   ## Separação das pastas, configuração do redux, configuração inicial rotas.
   ## Criando as primeiras interfaces: IUser e IRegister
+  ## commitar no github o start projeto
 
 # Sobre [redux-saga] / middleware / [Effects]
   # [fork()], realiza uma operação não bloqueante com a função passada.
@@ -20,7 +21,7 @@
   # Criando file styles para colocar o global
   # Criando file config para colocar tudo sobre configuração -> light / dark / informations / typography
 
-# Entender a usabilidade [react-hook-form]
+# Entender a usabilidade [react-hook-form] and [zod]
   # UI and Form [Login]
   # UI and Form [Cadastro]
 

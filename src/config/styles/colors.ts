@@ -3,7 +3,7 @@ export const light_primary_bg_color = "#FEFEFE";
 export const light_secondary_bg_color = "#F6F8FF";
 export const light_color_primary = "#2B3442";
 export const light_color_secondary = "##4B6A9B";
-export const light_color_info_icon = "##4B6A9B";
+export const light_color_blue_button = "#60ABFF";
 
 // Coringa - estará ambos os modos
 export const color_blue = "#0079FF";
