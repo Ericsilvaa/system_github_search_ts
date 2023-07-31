@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   min-height: 100vh;
-  background-color: brown;
+  background: #F6F8FF;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,6 +11,5 @@ export const Container = styled.div`
 
 export const Area = styled.div`
   width: 750px;
-  background-color:blanchedalmond;
   display: flex;
 `

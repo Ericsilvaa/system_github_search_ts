@@ -1,7 +1,10 @@
 import React from 'react'
 import * as C from './style'
+
+// components
 import Header from '../../components/Header'
 import SearchUser from '../../components/Search'
+import Painel from '../../components/Painel'
 
 type Props = {}
 
@@ -17,6 +20,7 @@ const Home = (props: Props) => {
       <SearchUser />
 
       {/* painel da pesquisa - esse cara será flex 1 */}
+      <Painel />
 
     </C.Container>
   )

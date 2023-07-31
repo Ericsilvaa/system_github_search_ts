@@ -19,8 +19,8 @@ export const ToggleButton = styled.div`
   align-items: center;
   cursor: pointer;
 
+  color: #697C9A;
   span {
-    color: #697C9A;
     font-size: 0.825rem;
     letter-spacing: 1.5px;
     font-weight: 700;
@@ -31,5 +31,11 @@ export const ToggleButton = styled.div`
     height: 20px;
     
   }
+
+  &:hover {
+    color: #222731;
+  }
+
+
 
 `

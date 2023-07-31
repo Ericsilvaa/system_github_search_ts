@@ -28,7 +28,7 @@ const SearchUser = (props: Props) => {
         {/* input */}
         <input type="text" placeholder="Search GitHub username…" />
         {/* button */}
-        <button></button>
+        <button>Search</button>
       </C.AreaSearch>
     </C.Container>
   );
