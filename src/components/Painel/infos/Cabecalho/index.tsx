@@ -1,17 +1,23 @@
 import React from 'react'
 import * as C from './styles'
+import IUser from '../../../../interfaces/IUser'
 
-type Props = {}
+type Props = {
+  loadUser: IUser
+}
 
-const Cabecalho = (props: Props) => {
+const Cabecalho = ({loadUser}: Props) => {
+  const {created_at, name, bio, login} = loadUser
+
+
   return (
     <C.AreaDescription>
     <div>
-      <h3>The Octocat</h3>
-      <span className="created">Joined 25 Jan 2011</span>
+      <h3>{name}</h3>
+      <span className="created">{created_at}</span>
     </div>
-    <span className="redesocial">@octocat</span>
-    <p>This profile has no bio</p>
+    <span className="redesocial">@{login}</span>
+    <p>{bio ? `${bio}` : 'This profile has no bio'}</p>
   </C.AreaDescription>
   )
 }

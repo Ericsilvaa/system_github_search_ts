@@ -3,28 +3,33 @@ import * as C from "./styles";
 import Dashboard from "./Dashboard";
 import Redes from "./RedesSociais";
 import Cabecalho from "./Cabecalho";
+import { useSelector } from "react-redux";
+import IUser from "../../../interfaces/IUser";
 
 type Props = {};
 
 const Info = (props: Props) => {
+  const {loadUser} = useSelector((state) => state.user)
+
+  console.log(loadUser)
   return (
     <C.Container>
       {/* cabecalho */}
-      <Cabecalho />
+      <Cabecalho loadUser={loadUser}/>
 
       {/* dashboard */}
       <C.Dashboard>
-        <Dashboard name="Repos" numero="8" />
-        <Dashboard name="Followers" numero="3938" />
-        <Dashboard name="Following" numero="9" />
+        <Dashboard name="Repos" numero={loadUser.public_repos} />
+        <Dashboard name="Followers" numero={loadUser.followers} />
+        <Dashboard name="Following" numero={loadUser.following} />
       </C.Dashboard>
 
       {/* redesociais */}
       <C.RedesSociais>
-        <Redes description="San Francisco" />
+        <Redes description={loadUser.location} />
         <Redes description="Not Available" />
-        <Redes description="https://github.blog" />
-        <Redes description="@github" />
+        <Redes description={loadUser.blog} />
+        <Redes description={loadUser.url} />
       </C.RedesSociais>
     </C.Container>
   );

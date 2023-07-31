@@ -1,23 +1,25 @@
 // import {all, fork, call, put, takeLatest} from 'redux-saga/effects'
-import {all , takeLatest} from 'redux-saga/effects'
-// import {onLoadUserSuccess, onLoadUserFailure, onLogoutUser} from './slice'
+import {all , takeLatest, call, put, EffectFunction} from 'redux-saga/effects'
+import { onGetUserFailure,onGetUserSuccess } from './slice'
+import axios from 'axios'
+import IUser from '../../interfaces/IUser'
 
 
-function* onGetLoadUserLocalStorage() {
-  // try {
-    // ir até o localStorage para ver se existe algum usuario .. se não tiver permanecer em login
-    // pegar pelo token
-    
-    // const response = yield call()
-    // yield put(onLoadUserSuccess(response.data))
-  // } catch (error) {
-  //   yield put(onLoadUserFailure(error))
-  // }
+const getUserApi: EffectFunction<string, unknown, unknown> = async (name: string | undefined)=> {
+  const response = await axios.get(`https://api.github.com/users/${name}`)
+  return response.data
 }
 
-function* onLogoutUserLocalStorage() {
-  localStorage.removeItem('token')
-  // yield put(onLogoutUser())
+
+function* onGetUser(user) {
+  const {payload}: {payload: string} = user
+  try {
+    const user: IUser = yield call(getUserApi, payload)
+    yield put(onGetUserSuccess(user))
+  } catch (error) {
+    console.log('caiu no catch')
+    yield put(onGetUserFailure(error))
+  }
 }
 
 
@@ -25,8 +27,7 @@ function* onLogoutUserLocalStorage() {
 
 export default all([
   // pode ser um FORK() -> aceita uma função
-  takeLatest('loadUser/onLoadUser', onGetLoadUserLocalStorage),
-  takeLatest('loadUser/onLogoutUser', onLogoutUserLocalStorage)
+  takeLatest('loadUser/onGetUser', onGetUser),
 
 ])
 

@@ -3,7 +3,7 @@ import * as C from './styles'
 
 type Props = {
   name: string;
-  numero: string;
+  numero: number;
 }
 
 const Dashboard = ({name, numero}: Props) => {

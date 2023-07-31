@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import * as C from "./styles";
+import { useDispatch, useSelector } from "react-redux";
+import { onGetUser } from "../../redux/user/slice";
+
 
 type Props = {};
 
 const SearchUser = (props: Props) => {
+  const [user, setUser] = useState("");
+  const dispatch = useDispatch()
+
+  function handleGetUser() {
+    dispatch(onGetUser(user))
+  }
+
+
   return (
     <C.Container>
       {/* 3 elementos dentro de um container */}
@@ -26,9 +37,14 @@ const SearchUser = (props: Props) => {
           </svg>
         </div>
         {/* input */}
-        <input type="text" placeholder="Search GitHub username…" />
+        <input
+          type="text"
+          placeholder="Search GitHub username…"
+          value={user}
+          onChange={(e) => setUser(e.target.value)}
+        />
         {/* button */}
-        <button>Search</button>
+        <button onClick={handleGetUser}>Search</button>
       </C.AreaSearch>
     </C.Container>
   );
