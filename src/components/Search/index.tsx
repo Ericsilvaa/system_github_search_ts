@@ -1,19 +1,21 @@
 import React, { useState } from "react";
+
+// redux
+import { getStateUser, onGetUser } from "../../redux/user/slice";
+import { useAppDispatch, useAppSelector } from "../../redux/store.hooks";
+
+// style
 import * as C from "./styles";
-import { useDispatch, useSelector } from "react-redux";
-import { onGetUser } from "../../redux/user/slice";
 
-
-type Props = {};
-
-const SearchUser = (props: Props) => {
+const SearchUser = () => {
   const [user, setUser] = useState("");
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch();
+  const { error, loading } = useAppSelector(getStateUser);
 
   function handleGetUser() {
-    dispatch(onGetUser(user))
+    dispatch(onGetUser(user));
+    setUser('')
   }
-
 
   return (
     <C.Container>
@@ -37,14 +39,19 @@ const SearchUser = (props: Props) => {
           </svg>
         </div>
         {/* input */}
-        <input
-          type="text"
-          placeholder="Search GitHub username…"
-          value={user}
-          onChange={(e) => setUser(e.target.value)}
-        />
+        {loading ? (
+          <span>Carregando...</span>
+        ) : (
+          <input
+            type="text"
+            placeholder="Search GitHub username…"
+            value={user}
+            onChange={(e) => setUser(e.target.value)}
+          />
+        )}
+        <C.Error>{error && <span>{error}</span>}</C.Error>
         {/* button */}
-        <button onClick={handleGetUser}>Search</button>
+        <button onClick={handleGetUser} disabled={loading}>{loading ? 'Carregando' : 'Search'}</button>
       </C.AreaSearch>
     </C.Container>
   );

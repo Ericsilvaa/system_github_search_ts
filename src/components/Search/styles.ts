@@ -9,7 +9,7 @@ export const Container = styled.section`
 
 export const AreaSearch = styled.div`
   display: grid;
-  grid-template-columns: 30px 1fr 100px;
+  grid-template-columns:  30px 1fr 70px 100px;
   align-items: center;
   gap: 10px;
   padding: 0px 20px;
@@ -50,9 +50,14 @@ export const AreaSearch = styled.div`
       background-color: #60ABFF;
       transition: all 0.3s;
     }
-  
-  
   }
 
+`
 
+export const Error = styled.div`
+  span {
+    font-size:0.775rem ;
+    font-weight: bold;
+    color: red;
+  }
 `

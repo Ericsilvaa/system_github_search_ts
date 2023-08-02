@@ -7,19 +7,19 @@ export const Container = styled.div`
   margin-bottom: 30px;
 `
 
-export const Logo = styled.h2`
-  color: #222731;
-  font-size: 1.5rem;
+export const Logo = styled.h2<{dark: boolean}>`
+  color: ${props => props.dark ? '#FFFFFF' : '#222731' } ;
+  font-size: 1.4rem;
   font-weight: 700;
 `
 
-export const ToggleButton = styled.div`
+export const ToggleButton = styled.div<{dark: boolean}>`
   display: flex;
   gap: 5px;
   align-items: center;
   cursor: pointer;
 
-  color: #697C9A;
+  color: ${props => props.dark ? '#FFFFFF'  :  '#697C9A'} ;
   span {
     font-size: 0.825rem;
     letter-spacing: 1.5px;
@@ -33,7 +33,7 @@ export const ToggleButton = styled.div`
   }
 
   &:hover {
-    color: #222731;
+    color: ${props => props.dark ? '#90A4D4' : '#222731'} ;
   }
 
 
