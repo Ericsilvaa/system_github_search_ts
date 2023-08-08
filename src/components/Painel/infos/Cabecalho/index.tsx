@@ -1,6 +1,5 @@
 import React from "react";
 import * as C from "./styles";
-import IUser from "../../../../interfaces/IUser";
 import { useAppSelector } from "../../../../redux/store.hooks";
 import { getStateUser } from "../../../../redux/user/slice";
 
