@@ -12,7 +12,7 @@ export const Icon = styled.svg`
 `
 
 export const Info = styled.p`
-  color: #4B6A9B;
+  color: ${props => props.theme.colors.color_secondary};
   font-size: 0.925rem;
 
 `

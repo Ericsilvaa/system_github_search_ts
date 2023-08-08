@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.section`
   border-radius: 15px;
-  background: #FEFEFE;
+  background: ${props => props.theme.colors.primary_bg_color};
   box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.20);
   padding: 5px 0px;
 `
@@ -26,13 +26,15 @@ export const AreaSearch = styled.div`
 
   input {
     background-color: transparent;
-    font-size: 1.1rem;
-    font-weight: 400;
+    color:  ${props => props.theme.colors.color_secondary};
+    font-size: 0.925rem;
     line-height: 25px; /* 138.889% */
     outline: none;
     border: none;
-    color: #4B6A9B;
 
+    &::placeholder{
+      color:  ${props => props.theme.colors.color_secondary};
+    }
   }
 
   button {
@@ -58,6 +60,6 @@ export const Error = styled.div`
   span {
     font-size:0.775rem ;
     font-weight: bold;
-    color: red;
+    color: ${props => props.theme.colorsInfo.error};
   }
 `

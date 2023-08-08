@@ -8,14 +8,14 @@ export const AreaDescription = styled.div`
   }
 
   h3 {
-      color: #2B3442;
+      color: ${props => props.theme.colors.color_primary};
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 5px;
     }
 
     .created {
-      color: #697C9A;
+      color: ${props => props.theme.colors.color_blue_button};
       font-size: 0.975rem;
     }
 
@@ -25,7 +25,7 @@ export const AreaDescription = styled.div`
     }
 
     p {
-      color: #4B6A9B;
+      color:  ${props => props.theme.colors.color_secondary};
       font-size: 0.945rem;
       line-height: 25px; /* 166.667% */
       margin-top: 20px;

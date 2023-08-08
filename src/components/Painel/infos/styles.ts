@@ -9,7 +9,7 @@ export const Container = styled.div`
 
 export const Dashboard = styled.div`
   border-radius: 10px;
-  background: #F6F8FF;
+  background: ${props => props.theme.colors.color_dashbord};
   height: 85px;
   display: flex;
   flex-wrap: wrap;

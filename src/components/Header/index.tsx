@@ -7,15 +7,17 @@ type Props = {};
 
 const Header = (props: Props) => {
   const dispatch = useAppDispatch();
-  const { dark } = useAppSelector(darkMode);
+  const  theme = useAppSelector(darkMode);
+
+  const toggleTheme = () => dispatch(toggleDarkMode())
 
   return (
     <C.Container>
       {/* 2 elementos = nome / button(dark) */}
-      <C.Logo dark={dark}>devfinder</C.Logo>
+      <C.Logo>devfinder</C.Logo>
 
-      <C.ToggleButton onClick={() => dispatch(toggleDarkMode())} dark={dark}>
-        {!dark ? (
+      <C.ToggleButton onClick={toggleTheme} >
+        {theme.title === 'light' ? (
           <>
             <span>DARK</span>
             <div>

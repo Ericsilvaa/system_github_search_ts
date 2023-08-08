@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 
-export const Container = styled.div<{dark: boolean}>`
+export const Container = styled.div`
   min-height: 100vh;
-  background: ${props => props.dark ? '#141D2F' : '#F6F8FF'};
+  background: ${props => props.theme.colors.secondary_bg_color};
   display: flex;
   justify-content: center;
   align-items: center;

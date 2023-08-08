@@ -7,19 +7,19 @@ export const Container = styled.div`
   margin-bottom: 30px;
 `
 
-export const Logo = styled.h2<{dark: boolean}>`
-  color: ${props => props.dark ? '#FFFFFF' : '#222731' } ;
+export const Logo = styled.h2`
+  color: ${props => props.theme.colors.color_primary};
   font-size: 1.4rem;
   font-weight: 700;
 `
 
-export const ToggleButton = styled.div<{dark: boolean}>`
+export const ToggleButton = styled.div`
   display: flex;
   gap: 5px;
   align-items: center;
   cursor: pointer;
 
-  color: ${props => props.dark ? '#FFFFFF'  :  '#697C9A'} ;
+  color: ${props => props.theme.colors.color_blue_button};
   span {
     font-size: 0.825rem;
     letter-spacing: 1.5px;
@@ -31,10 +31,10 @@ export const ToggleButton = styled.div<{dark: boolean}>`
     height: 20px;
     
   }
-
+/* 
   &:hover {
-    color: ${props => props.dark ? '#90A4D4' : '#222731'} ;
-  }
+    color: ${props => props.theme.colors ? '#90A4D4' : '#222731'} ;
+  } */
 
 
 

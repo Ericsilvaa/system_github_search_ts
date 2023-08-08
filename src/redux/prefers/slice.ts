@@ -1,12 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
+import { DefaultTheme } from "styled-components/dist/types";
+
+import light from "../../styles/themes/light";
+import dark from "../../styles/themes/dark";
 
 type prefers = {
-  dark: boolean
+  theme: DefaultTheme
 }
 
 const initialState: prefers = {
-  dark: false
+  theme: light
 }
 
 const prefersSlice = createSlice({
@@ -14,7 +18,7 @@ const prefersSlice = createSlice({
   initialState,
   reducers: {
     toggleDarkMode(state) {
-      state.dark = !state.dark;
+      state.theme = state.theme.title === 'light' ? dark : light
     },
   }
 })
@@ -23,4 +27,4 @@ export const { toggleDarkMode } = prefersSlice.actions
 
 export default prefersSlice.reducer
 
-export const darkMode = (state: RootState) => state.prefers
+export const darkMode = (state: RootState) => state.prefers.theme

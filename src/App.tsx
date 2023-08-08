@@ -1,23 +1,26 @@
 import Home from "./pages/home";
-// style
-import { GlobalStyle } from "./config/styles/GlobalStyle";
-import * as C from "./app.styles";
 import { useAppSelector } from "./redux/store.hooks";
 import { darkMode } from "./redux/prefers/slice";
 
-function App() {
-  const {dark} = useAppSelector(darkMode)
+// style
+import * as C from "./app.styles";
+import { GlobalStyle } from "./config/styles/GlobalStyle";
+import { ThemeProvider } from "styled-components";
 
+function App() {
+  const theme = useAppSelector(darkMode);
 
   return (
-    <>
-      <GlobalStyle />
-      <C.Container dark={dark}>
-        <C.Area>
-          <Home />
-        </C.Area>
-      </C.Container>
-    </>
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyle />
+        <C.Container>
+          <C.Area>
+            <Home />
+          </C.Area>
+        </C.Container>
+      </>
+    </ThemeProvider>
   );
 }
 

@@ -1,6 +1,7 @@
 export default interface IUser {
   login: string,
   id: number,
+  url: string,
   avatar_url: string,
   gravatar_id: string,
   followers_url: string,
