@@ -1,11 +1,12 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import IUser from "../../interfaces/IUser";
 import { RootState } from "../store";
+import { useDateFormat } from "../../hooks/useFormatDate";
 
 interface IState {
   loadUser: Partial<IUser> | string
   loading: boolean,
-  error: string|null,
+  error: string | null,
 }
 
 const initialState: IState = {
@@ -29,14 +30,14 @@ const userSlice = createSlice({
   name: "loadUser",
   initialState,
   reducers: {
-    onGetUser: (state, { payload }: PayloadAction<string> ) => {
+    onGetUser: (state, { payload }: PayloadAction<string>) => {
       state.loading = true;
       state.loadUser = payload
-      state.error= null;
+      state.error = null;
     },
     onGetUserSuccess: (state, { payload }: PayloadAction<IUser>) => {
       state.loading = false;
-      state.loadUser = payload;
+      state.loadUser = { ...payload, created_at: useDateFormat(payload.created_at) };
     },
     onGetUserFailure: (state, { payload }: PayloadAction<string>) => {
       state.loading = false;
@@ -56,4 +57,10 @@ export default userSlice.reducer;
 
 
 // selector
-export const getStateUser = (state: RootState) => state.user
+export const getStateUser = (state: RootState) => {
+  return {
+    user: state.user.loadUser as IUser,
+    loading: state.user.loading,
+    error: state.user.error
+  }
+}

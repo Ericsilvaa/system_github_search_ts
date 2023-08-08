@@ -1,27 +1,20 @@
-import React from 'react'
-import * as C from './styles'
+import React from "react";
+import * as C from "./styles";
 
 // components
-import Perfil from './perfil'
-import Info from './infos'
-import { useSelector } from 'react-redux'
-
-
+import Perfil from "./perfil";
+import Info from "./infos";
 
 const Painel = () => {
-
-  const {loadUser} = useSelector(state => state.user)
-
   return (
     <C.Container>
       {/* CONTAINER DA IMAGEM*/}
-      <Perfil url={loadUser.avatar_url} />
-
+      <Perfil />
 
       {/* CONTAINER DAS INFORMAÇÕES */}
       <Info />
     </C.Container>
-  )
-}
+  );
+};
 
-export default Painel
+export default Painel;

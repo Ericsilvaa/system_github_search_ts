@@ -1,21 +1,23 @@
 import React from "react";
 import * as C from "./styles";
-import { useSelector } from "react-redux";
 import Dashboard from "./Dashboard";
 import Redes from "./RedesSociais";
 import Cabecalho from "./Cabecalho";
+import { useSelector } from "react-redux";
 import IUser from "../../../interfaces/IUser";
+import { useAppSelector } from "../../../redux/store.hooks";
+import { getStateUser } from "../../../redux/user/slice";
 
 type Props = {};
 
 const Info = (props: Props) => {
-  const { loadUser } = useSelector((state) => state.user);
+  const { user: loadUser } = useAppSelector(getStateUser);
 
   console.log(loadUser);
   return (
     <C.Container>
       {/* cabecalho */}
-      <Cabecalho loadUser={loadUser} />
+      <Cabecalho />
 
       {/* dashboard */}
       <C.Dashboard>
